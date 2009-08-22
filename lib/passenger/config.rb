@@ -28,7 +28,7 @@ module Passenger
 
     def initialize(p)
       self.root = p[:root]
-      @domain = (p[:domain] || '.dev').sub(/^\.*/,'.')
+      @domain = (p[:domain] || '.local').sub(/^\.*/,'.')
       @hosts = p[:hosts] || '/etc/hosts'
       @ip = p[:ip] || '127.0.0.1'
 
