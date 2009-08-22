@@ -396,13 +396,6 @@ module Passenger
             "  ...and then rerun #{$0}."
         end
       end
-
-      _load_passenger_prefix = @conf_files[:load][:match][3]
-      if @conf_files[:ruby]
-        unless _load_passenger_prefix == _ruby_passenger_prefix = @conf_files[:ruby][:match][2]
-          raise "Passenger module prefix #{_load_passenger_prefix} and PassengerRuby prefix #{_ruby_passenger_prefix} should be the same."
-        end
-      end
     end
 
     def passenger_config_version
