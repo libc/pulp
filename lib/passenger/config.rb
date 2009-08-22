@@ -104,7 +104,7 @@ module Passenger
           f.puts @vhost_entry
         end
       end
-      system("#{@@apachectl} restart")
+      system("#{@@apachectl} graceful")
     end
 
     private
