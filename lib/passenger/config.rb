@@ -68,6 +68,18 @@ module Passenger
     end
 
     def update_hosts
+      if RUBY_PLATFORM =~ /darwin/
+        update_hosts_macos
+      else
+        update_hosts_etc_hosts
+      end
+    end
+
+    def update_hosts_macos
+      system "/usr/bin/dscl localhost -create /Local/Default/Hosts/#{host} IPAddress #{ip}"
+    end
+
+    def update_hosts_etc_hosts
       _had_domain_line = false
       File.open(hosts, 'r+') do |f|
         f.flock File::LOCK_EX
