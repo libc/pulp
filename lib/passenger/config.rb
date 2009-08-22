@@ -73,16 +73,16 @@ module Passenger
         f.flock File::LOCK_EX
         _buffer = []
         f.each do |l|
-          if l.match(domain_re)		# add it to the same line that the other #{domain} entries are on
+          if l.match(domain_re)             # add it to the same line that the other #{domain} entries are on
             _had_domain_line = true
-            unless l.match(host_re)	# already exists - don't re-add
+            unless l.match(host_re)         # already exists - don't re-add
               l = "#{l.chomp} #{host}\n"
             end
           end
           _buffer << l
         end
 
-        unless _had_domain_line			# if there was no #{domain} line then just add it to the end
+        unless _had_domain_line             # if there was no #{domain} line then just add it to the end
           _buffer << "#{ip} #{host}\n"
         end
         f.seek 0
@@ -131,12 +131,12 @@ module Passenger
     def setup_vhost
       @vhost_entry =<<-__EOI
 <VirtualHost #{vhost}>
-	DocumentRoot #{root}
-	ServerName #{host}
-	<Location />
-		Order allow,deny
-		Allow from all
-	</Location>
+  DocumentRoot #{root}
+  ServerName #{host}
+  <Location />
+    Order allow,deny
+    Allow from all
+  </Location>
 </VirtualHost>
 
       __EOI
