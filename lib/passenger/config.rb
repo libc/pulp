@@ -271,8 +271,8 @@ module Passenger
       #
       @_conf_strings = {
         :vhost => /^\s*NameVirtualHost\s+(\S+)/i,
-        :load => %r{^\s*LoadModule\s+passenger_module\s+(((/\S+)/lib/ruby/gems/\S+/passenger-([\d.]+))/ext/apache2/mod_passenger.so)}i,
-        :root => %r{^\s*PassengerRoot\s+(['"]?)(/\S+/lib/ruby/gems/\S+/passenger-([\d.]+))\1}i,
+        :load => %r{^\s*LoadModule\s+passenger_module\s+(((/\S+)/gems/\S+/passenger-([\d.]+))/ext/apache2/mod_passenger.so)}i,
+        :root => %r{^\s*PassengerRoot\s+(['"]?)(/\S+/gems/\S+/passenger-([\d.]+))\1}i,
         :ruby =>  %r{^\s*PassengerRuby\s+(['"]?)(/\S+)/bin/ruby\1}i,
         :renv =>  %r{^\s*RailsEnv\s+(['"]?)(\S+)\1}i
       }
